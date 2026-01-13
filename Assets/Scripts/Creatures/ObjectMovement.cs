@@ -4,11 +4,11 @@ using UnityEngine.InputSystem;
 public class ObjectMovement : MonoBehaviour
 {
     [SerializeField] private Rigidbody _rigidbody;
-    [SerializeField] private VelocityBoost _velocityBoost;
+    [SerializeField] private ObjectBoost _velocityBoost;
     [SerializeField, Range(0f, 100f)] private float _defaultAcceleration = 50f;
     [SerializeField, Range(0f, 100f)] private float _boosterAcceleration = 100f;
     [SerializeField, Range(0f, 100f)] private float _maxSpeed = 6f;
-    [SerializeField, Range(0f, 100f)] private float _rotationSpeed = 6f;
+    [SerializeField, Range(0f, 500f)] private float _rotationSpeed = 6f;
 
     private float _moveInput;
     private bool IsBoosting => _moveInput == 1f ? true : false;

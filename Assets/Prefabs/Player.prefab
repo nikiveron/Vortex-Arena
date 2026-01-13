@@ -10,8 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1026081023411479301}
   - component: {fileID: 8170205585124955159}
-  - component: {fileID: 8210046871594411761}
   - component: {fileID: 1739450310555379960}
+  - component: {fileID: 8210046871594411761}
+  - component: {fileID: 2378585073758380218}
+  - component: {fileID: 8310899279841908501}
+  - component: {fileID: 8559331765194663106}
+  - component: {fileID: 6480659310693688388}
+  - component: {fileID: 1288328996352335123}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -62,19 +67,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 3
---- !u!114 &8210046871594411761
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 513362664269914711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d24c25afebc91a41b199854792054b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxState: 100
 --- !u!114 &1739450310555379960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,6 +85,132 @@ MonoBehaviour:
   _boosterAcceleration: 6
   _maxSpeed: 6
   _rotationSpeed: 6
+--- !u!114 &8210046871594411761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513362664269914711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d24c25afebc91a41b199854792054b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxState: 100
+  _onStateChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2378585073758380218}
+        m_TargetAssemblyTypeName: SliderStatisticView, Assembly-CSharp
+        m_MethodName: Display
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2378585073758380218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513362664269914711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cce59d3f318191439d1a1bf2a9a8a44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slider: {fileID: 0}
+--- !u!114 &8310899279841908501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513362664269914711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8255f3574679e4c458054066083f9331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxState: 100
+  _onStateChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8559331765194663106}
+        m_TargetAssemblyTypeName: TextStatisticView, Assembly-CSharp
+        m_MethodName: Display
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onDestroyed:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &8559331765194663106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513362664269914711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dec86e506aea4c2458cfc2259e39f386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _text: {fileID: 0}
+--- !u!114 &6480659310693688388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513362664269914711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 055bbe62896973943999d02d110e513c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxState: 100
+  _onStateChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1288328996352335123}
+        m_TargetAssemblyTypeName: TextStatisticView, Assembly-CSharp
+        m_MethodName: Display
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1288328996352335123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513362664269914711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dec86e506aea4c2458cfc2259e39f386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _text: {fileID: 0}
 --- !u!1 &2297862508257580732
 GameObject:
   m_ObjectHideFlags: 0
