@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5038982084222575172}
   - component: {fileID: 2930514395220763400}
+  - component: {fileID: 1540694889132098943}
   m_Layer: 0
   m_Name: SceneSwitcher
   m_TagString: Untagged
@@ -44,5 +45,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a99826a62486eef488928eba0e6627de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pauseManager: {fileID: 1540694889132098943}
   _mainMenuSceneName: 01_MainMenu
   _gameMenuSceneName: 02_GameLevel
+--- !u!114 &1540694889132098943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8235866994639118146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61b8d29fb4c8ab54c9c725c351df4fd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
