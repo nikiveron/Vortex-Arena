@@ -4,6 +4,9 @@ using UnityEngine.Events;
 
 public class ObjectShoot : MonoBehaviour
 {
+    [SerializeField] private CreatureType _creatureType;
+    [SerializeField] private Transform[] _firePoints;
+    [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private float _maxState = 100f;
     [SerializeField] private float _additionDelay = 5f;
     [SerializeField] private UnityEvent<float, float> _onStateChanged;
@@ -28,15 +31,25 @@ public class ObjectShoot : MonoBehaviour
         StartCoroutine(AddShoot());
     }
 
-    public bool TryShoot()
+    public void Shoot()
     {
         if (IsAvaliable)
         {
+            ShootOnce();
             _currentState--;
             _onStateChanged.Invoke(_maxState, _currentState);
-            return true;
         }
-        return false;
+    }
+
+    private void ShootOnce()
+    {
+        foreach (Transform firePoint in _firePoints)
+        {
+            firePoint.GetPositionAndRotation(out Vector3 spawnPosition, out Quaternion bulletDirection);
+            GameObject bulletObj = Instantiate(_bulletPrefab, spawnPosition, bulletDirection);
+            Bullet bullet = bulletObj.GetComponent<Bullet>();
+            bullet.Initialize(gameObject, _creatureType);
+        }
     }
 
     public IEnumerator AddShoot()
