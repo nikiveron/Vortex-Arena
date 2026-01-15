@@ -1,20 +1,11 @@
 using System.Collections;
 using UnityEngine;
 
-public class EnemyShooter : MonoBehaviour
+public class EnemyShooter : ObjectShoot
 {
-    [SerializeField] private Transform[] _firePoints;
-    [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private float _minShootInterval = 3f;
     [SerializeField] private float _maxShootInterval = 7f;
-    [SerializeField] private float _checkPlayerRadius = 2f;
-    [SerializeField] private LayerMask _checkPlayerLayer;
     private bool _canShoot = false;
-
-    private void FixedUpdate()
-    {
-        CheckPlayerAround();
-    }
 
     private void OnEnable()
     {
@@ -25,12 +16,6 @@ public class EnemyShooter : MonoBehaviour
     {
         StopAllCoroutines();
     }
-
-    public void Shoot(bool canShoot)
-    {
-        _canShoot = canShoot;
-    }
-
 
     private IEnumerator ShootCoroutine()
     {
@@ -44,27 +29,9 @@ public class EnemyShooter : MonoBehaviour
         }
     }
 
-    private void ShootOnce()
+    public void Shoot(bool canShoot)
     {
-        foreach (Transform firePoint in _firePoints)
-        {
-            Vector3 spawnPosition = firePoint.position;
-            Quaternion bulletDirection = firePoint.rotation;
-            Instantiate(_bulletPrefab, spawnPosition, bulletDirection);
-        }
+        _canShoot = canShoot;
     }
-
-    private void CheckPlayerAround()
-    {
-        Collider[] hits = Physics.OverlapSphere(transform.position, _checkPlayerRadius, _checkPlayerLayer);
-
-        foreach (Collider hit in hits)
-        {
-            if (hit.TryGetComponent<PlayerController>(out var playerController))
-            {
-                //activator.TryActivate();
-                return;
-            }
-        }
-    }
+    
 }

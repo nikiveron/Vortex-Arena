@@ -2,19 +2,16 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ObjectBoost : MonoBehaviour
+public class PlayerShoot : ObjectShoot
 {
     [SerializeField] private float _maxState = 100f;
-    [SerializeField] private float _additionDelay = 0.5f;
+    [SerializeField] private float _additionDelay = 5f;
     [SerializeField] private UnityEvent<float, float> _onStateChanged;
 
     private float _currentState = 100f;
-    private float _moveInput = 0f;
-
     public float MaxState => _maxState;
     public float CurrentState => _currentState;
     public bool IsAvaliable => _currentState > 0;
-    public bool IsBoosting => _moveInput == 1f;
 
     private void Awake()
     {
@@ -28,26 +25,20 @@ public class ObjectBoost : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(AddStamina());
+        StartCoroutine(AddShoot());
     }
 
-    public void Boost(float moveInput)
+    public void Shoot()
     {
-        _moveInput = moveInput;
-    }
-
-    public bool TryBoost()
-    {
-        if (IsAvaliable && IsBoosting)
+        if (IsAvaliable)
         {
+            ShootOnce();
             _currentState--;
             _onStateChanged.Invoke(_maxState, _currentState);
-            return true;
         }
-        return false;
     }
 
-    public IEnumerator AddStamina()
+    public IEnumerator AddShoot()
     {
         while (true)
         {

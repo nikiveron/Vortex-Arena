@@ -4,9 +4,10 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private PlayerInput _playerInput;
-    [SerializeField] private ObjectMovement _objectMovement;
+    [SerializeField] private PlayerMovement _objectMovement;
+    [SerializeField] private ObjectBoost _objectBoost;
     [SerializeField] private ObjectRotate _objectRotate;
-    [SerializeField] private ObjectShoot _objectShoot;
+    [SerializeField] private PlayerShoot _objectShoot;
     [SerializeField] private string _moveActionName = "Move";
     [SerializeField] private string _rotateActionName = "Rotate";
     [SerializeField] private string _shootActionName = "Shoot";
@@ -14,7 +15,7 @@ public class PlayerController : MonoBehaviour
     private InputAction _moveAction;
     private InputAction _rotateAction;
     private InputAction _shootAction;
-    private float _inputMovementDirection;
+    private float _inputBoost;
     private float _inputRotateDirection;
     private bool _isShooting;
 
@@ -64,7 +65,8 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMovement()
     {
-        _objectMovement.Move(_inputMovementDirection);
+        _objectBoost.Boost(_inputBoost);
+        _objectMovement.Move(transform.forward);
     }
 
     private void HandleShoot()
@@ -77,11 +79,11 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
-            _inputMovementDirection = context.ReadValue<float>();
+            _inputBoost = context.ReadValue<float>();
         }
         else if (context.canceled)
         {
-            _inputMovementDirection = 0f;
+            _inputBoost = 0f;
         }
     }
 

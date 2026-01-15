@@ -42,13 +42,13 @@ GameObject:
   - component: {fileID: 1026081023411479301}
   - component: {fileID: 8170205585124955159}
   - component: {fileID: 8256606937563587944}
+  - component: {fileID: 6181469596398215341}
   - component: {fileID: 2970453739107659802}
-  - component: {fileID: 5977052659831932629}
   - component: {fileID: 9150239533152869433}
   - component: {fileID: 6088926334238349264}
   - component: {fileID: 7952259131227891845}
   - component: {fileID: 8895408410799267721}
-  - component: {fileID: 2933109776526453137}
+  - component: {fileID: 899364032190436974}
   - component: {fileID: 7689132443534045834}
   m_Layer: 0
   m_Name: Player
@@ -82,9 +82,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 513362664269914711}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 2
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 2
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -114,12 +114,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerInput: {fileID: 0}
-  _objectMovement: {fileID: 5977052659831932629}
+  _objectMovement: {fileID: 6181469596398215341}
+  _objectBoost: {fileID: 9150239533152869433}
   _objectRotate: {fileID: 2970453739107659802}
-  _objectShoot: {fileID: 2933109776526453137}
+  _objectShoot: {fileID: 899364032190436974}
   _moveActionName: Move
   _rotateActionName: Rotate
   _shootActionName: Shoot
+--- !u!114 &6181469596398215341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513362664269914711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85c635ccb5467594cabcbe82c81ca610, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rigidbody: {fileID: 8170205585124955159}
+  _velocityBoost: {fileID: 9150239533152869433}
+  _defaultAcceleration: 22
+  _boosterAcceleration: 50
+  _maxSpeed: 50
 --- !u!114 &2970453739107659802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,24 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 8170205585124955159}
-  _rotationSpeed: 60
---- !u!114 &5977052659831932629
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 513362664269914711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c59c9d99835130c499cf5a231c8f6bd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rigidbody: {fileID: 8170205585124955159}
-  _velocityBoost: {fileID: 9150239533152869433}
-  _defaultAcceleration: 15
-  _boosterAcceleration: 50
-  _maxSpeed: 25
+  _rotationSpeed: 115
 --- !u!114 &9150239533152869433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,7 +238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 0}
---- !u!114 &2933109776526453137
+--- !u!114 &899364032190436974
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -246,13 +247,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 513362664269914711}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68e0b53986b6a3c448b0579e1bed47ae, type: 3}
+  m_Script: {fileID: 11500000, guid: 7626caec71bd6324698b92a085b023d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _creatureType: 0
+  _creatureType: 1
   _firePoints:
   - {fileID: 12868786772227406}
-  _bulletPrefab: {fileID: 0}
+  _bulletPrefab: {fileID: 7945065123377942330, guid: d35b5e8af79b8b840809e5709e02f4a9, type: 3}
   _maxState: 100
   _additionDelay: 1
   _onStateChanged:
