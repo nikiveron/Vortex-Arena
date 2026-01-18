@@ -19,7 +19,9 @@ public class DealDamageAndDestroy : MonoBehaviour
         if (collision.gameObject.TryGetComponent<PlayerController>(out _) ^ _isPlayer)
         {
             if (collision.gameObject.TryGetComponent<ObjectHealth>(out var health))
+            {
                 health.TakeDamage(_damage);
+            }
             Destroy(gameObject);
         }
     }

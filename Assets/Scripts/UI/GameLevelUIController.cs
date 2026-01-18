@@ -7,6 +7,7 @@ public class GameLevelUIController : MonoBehaviour
 {
 	[SerializeField] private SceneSwitcher _sceneSwitcher;
 	[SerializeField] private PauseManager _pauseManager;
+	[SerializeField] private AudioSource _backgroundMusic;
 	[SerializeField] private PanelController _menuPanel;
 	[SerializeField] private PanelController _helpPanel;
 	[SerializeField] private PanelController _settingsPanel;
@@ -35,13 +36,15 @@ public class GameLevelUIController : MonoBehaviour
 	private void StopGame()
 	{
 		_pauseManager.PauseGame();
+		_backgroundMusic.Pause();
         _menuPanel.ShowPanel();
     }
 
 	private void ResumeGame()
 	{
 		_pauseManager.ResumeGame();
-		_menuPanel.HidePanel();
+		_backgroundMusic.Play();
+        _menuPanel.HidePanel();
     }
 
 	private void ExitGame()
@@ -51,7 +54,8 @@ public class GameLevelUIController : MonoBehaviour
 
 	public void EndGame()
     {
-        _pauseManager.PauseGame();
+        _pauseManager.PauseGame(); 
+		_backgroundMusic.Pause();
         _endGamePanel.ShowPanel();
     }
 
