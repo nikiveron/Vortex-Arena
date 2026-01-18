@@ -3153,14 +3153,14 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.9681086, b: 0.88113207, a: 1}
+  m_Color: {r: 0.8571239, g: 0.80700004, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -8304,19 +8304,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1026081023411479301, guid: 1471359257f2a6843ae63349b106ae2c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.60876286
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1026081023411479301, guid: 1471359257f2a6843ae63349b106ae2c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1026081023411479301, guid: 1471359257f2a6843ae63349b106ae2c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7933523
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1026081023411479301, guid: 1471359257f2a6843ae63349b106ae2c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1026081023411479301, guid: 1471359257f2a6843ae63349b106ae2c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8324,7 +8324,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1026081023411479301, guid: 1471359257f2a6843ae63349b106ae2c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 105
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1026081023411479301, guid: 1471359257f2a6843ae63349b106ae2c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -8374,6 +8374,10 @@ PrefabInstance:
       propertyPath: _slider
       value: 
       objectReference: {fileID: 106633793}
+    - target: {fileID: 6181469596398215341, guid: 1471359257f2a6843ae63349b106ae2c, type: 3}
+      propertyPath: _defaultAcceleration
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 6891942519942204672, guid: 1471359257f2a6843ae63349b106ae2c, type: 3}
       propertyPath: _slider
       value: 
