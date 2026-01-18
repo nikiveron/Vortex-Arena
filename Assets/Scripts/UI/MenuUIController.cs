@@ -7,7 +7,6 @@ public class MenuUIController : MonoBehaviour
 {
     [SerializeField] private SceneSwitcher _sceneSwitcher;
     [SerializeField] private PanelController _helpPanel;
-    [SerializeField] private PanelController _settingsPanel;
     [SerializeField] private PanelController _aboutPanel;
 
     [SerializeField] private Button _play;
@@ -19,12 +18,10 @@ public class MenuUIController : MonoBehaviour
     private void Awake()
     {
         _helpPanel.HidePanel();
-        _settingsPanel.HidePanel();
         _aboutPanel.HidePanel();
 
         _play.onClick.AddListener(StartPlay);
         _help.onClick.AddListener(_helpPanel.ShowPanel);
-        _settings.onClick.AddListener(_settingsPanel.ShowPanel);
         _about.onClick.AddListener(_aboutPanel.ShowPanel);
         _exit.onClick.AddListener(ExitGame);
     }

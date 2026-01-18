@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5416f98ba1fc92c4f9a08ebd9cc01d79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxState: 1
+  _maxState: 30
   _onStateChanged:
     m_PersistentCalls:
       m_Calls: []

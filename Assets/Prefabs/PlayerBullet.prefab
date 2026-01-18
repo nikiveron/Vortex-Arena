@@ -332,6 +332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bullet: {fileID: 5282025439528465670}
+  _hitSound: {fileID: 8300000, guid: 75adfe9a619833445a701305b983e548, type: 3}
   _damage: 10
 --- !u!82 &1045989810883881414
 AudioSource:

@@ -10,26 +10,24 @@ public class GameLevelUIController : MonoBehaviour
 	[SerializeField] private AudioSource _backgroundMusic;
 	[SerializeField] private PanelController _menuPanel;
 	[SerializeField] private PanelController _helpPanel;
-	[SerializeField] private PanelController _settingsPanel;
 	[SerializeField] private EndGamePanelController _endGamePanel;
 
 	[SerializeField] private Button _stopGame;
 	[SerializeField] private Button _return;
+	[SerializeField] private Button _restart;
 	[SerializeField] private Button _help;
-	[SerializeField] private Button _settings;
 	[SerializeField] private Button _exit;
 
 	private void Awake()
 	{
         _menuPanel.HidePanel();
         _helpPanel.HidePanel();
-		_settingsPanel.HidePanel();
         _endGamePanel.HidePanel();
 
         _stopGame.onClick.AddListener(StopGame);
-		_return.onClick.AddListener(ResumeGame);
+		_restart.onClick.AddListener(RestartGame);
+        _return.onClick.AddListener(ResumeGame);
 		_help.onClick.AddListener(_helpPanel.ShowPanel);
-		_settings.onClick.AddListener(_settingsPanel.ShowPanel);
 		_exit.onClick.AddListener(ExitGame);
 	}
 
@@ -40,7 +38,12 @@ public class GameLevelUIController : MonoBehaviour
         _menuPanel.ShowPanel();
     }
 
-	private void ResumeGame()
+	private void RestartGame()
+	{
+        _sceneSwitcher.LoadGameLevel();
+    }
+
+    private void ResumeGame()
 	{
 		_pauseManager.ResumeGame();
 		_backgroundMusic.Play();
@@ -64,7 +67,6 @@ public class GameLevelUIController : MonoBehaviour
         _stopGame.onClick.RemoveAllListeners();
         _return.onClick.RemoveAllListeners();
         _help.onClick.RemoveAllListeners();
-        _settings.onClick.RemoveAllListeners();
         _exit.onClick.RemoveAllListeners();
     }
 }
