@@ -101,7 +101,14 @@ public class PlayerController : MonoBehaviour
 
     public void OnShoot(InputAction.CallbackContext context)
     {
-        _isShooting = true;
+        if (context.canceled)
+        {
+            _isShooting = false;
+        }
+        else 
+        {
+            _isShooting = true;
+        }
     }
 
     private void OnDisable()

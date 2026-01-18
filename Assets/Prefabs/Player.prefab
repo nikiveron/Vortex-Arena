@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 6088926334238349264}
   - component: {fileID: 7952259131227891845}
   - component: {fileID: 8895408410799267721}
+  - component: {fileID: 6891942519942204672}
   - component: {fileID: 899364032190436974}
   - component: {fileID: 7689132443534045834}
   m_Layer: 0
@@ -134,10 +135,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 8170205585124955159}
-  _velocityBoost: {fileID: 9150239533152869433}
   _defaultAcceleration: 22
   _boosterAcceleration: 50
   _maxSpeed: 50
+  _velocityBoost: {fileID: 9150239533152869433}
 --- !u!114 &2970453739107659802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,6 +223,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6891942519942204672}
+        m_TargetAssemblyTypeName: SliderStatisticView, Assembly-CSharp
+        m_MethodName: Display
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _onDestroyed:
     m_PersistentCalls:
       m_Calls: []
@@ -238,6 +251,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 0}
+  _maxStateColor: {r: 0, g: 1, b: 0, a: 1}
+  _midStateColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  _criticalStateColor: {r: 1, g: 0, b: 0, a: 1}
+--- !u!114 &6891942519942204672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513362664269914711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cce59d3f318191439d1a1bf2a9a8a44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slider: {fileID: 0}
 --- !u!114 &899364032190436974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,6 +313,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 0}
+  _maxStateColor: {r: 0, g: 1, b: 0, a: 1}
+  _midStateColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  _criticalStateColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &2297862508257580732
 GameObject:
   m_ObjectHideFlags: 0

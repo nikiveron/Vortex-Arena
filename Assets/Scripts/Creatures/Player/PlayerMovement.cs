@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PlayerMovement : ObjectMovement
 {
+    [SerializeField] protected ObjectBoost _velocityBoost;
+
     public void Move(Vector3 direction)
     {
         Vector3 maximalVelocity = direction * _maxSpeed;

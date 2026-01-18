@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ObjectDeathHandler : MonoBehaviour
 {
-    [SerializeField] private Renderer[] _renderers;
-    [SerializeField] private Rigidbody _rigidbody;
-    [SerializeField] private Collider[] _colliders;
+    [SerializeField] protected Renderer[] _renderers;
+    [SerializeField] protected Rigidbody _rigidbody;
+    [SerializeField] protected Collider[] _colliders;
 
-    public void HandleDestroyed()
+    public virtual void HandleDestroyed()
     {
         DisableRenderer();
         DisablePhysics();

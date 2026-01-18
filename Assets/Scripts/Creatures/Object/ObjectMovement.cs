@@ -4,7 +4,6 @@ using UnityEngine;
 public abstract class ObjectMovement : MonoBehaviour
 {
     [SerializeField] protected Rigidbody _rigidbody;
-    [SerializeField] protected ObjectBoost _velocityBoost;
     [SerializeField, Range(0f, 100f)] protected float _defaultAcceleration = 50f;
     [SerializeField, Range(0f, 100f)] protected float _boosterAcceleration = 100f;
     [SerializeField, Range(0f, 100f)] protected float _maxSpeed = 6f;   

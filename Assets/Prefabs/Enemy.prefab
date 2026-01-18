@@ -118,9 +118,8 @@ GameObject:
   - component: {fileID: 6052852513284592836}
   - component: {fileID: 6234159385396034126}
   - component: {fileID: 2301068318651340355}
-  - component: {fileID: 5026820184131207004}
   - component: {fileID: 4060500030400105612}
-  - component: {fileID: 3026689174761182289}
+  - component: {fileID: 4365413443427811382}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -200,10 +199,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 7857276067336210253}
-  _velocityBoost: {fileID: 5026820184131207004}
   _defaultAcceleration: 50
   _boosterAcceleration: 100
   _maxSpeed: 5
+  _rotationSpeed: 6
 --- !u!114 &2301068318651340355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,23 +223,6 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 7945065123377942330, guid: c30e1dc328e35f84880fad5f4115cdfb, type: 3}
   _minShootInterval: 3
   _maxShootInterval: 7
---- !u!114 &5026820184131207004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 253958743452801183}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc6e3b8d721c2b4448bfdf4380650811, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxState: 100
-  _additionDelay: 0.5
-  _onStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &4060500030400105612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,15 +235,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5416f98ba1fc92c4f9a08ebd9cc01d79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxState: 30
+  _maxState: 1
   _onStateChanged:
     m_PersistentCalls:
       m_Calls: []
   _onDestroyed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3026689174761182289}
-        m_TargetAssemblyTypeName: ObjectDeathHandler, Assembly-CSharp
+      - m_Target: {fileID: 4365413443427811382}
+        m_TargetAssemblyTypeName: EnemyDeathHandler, Assembly-CSharp
         m_MethodName: HandleDestroyed
         m_Mode: 1
         m_Arguments:
@@ -272,7 +254,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3026689174761182289
+--- !u!114 &4365413443427811382
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -281,7 +263,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 253958743452801183}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2293c1d53859fba48874f404bad0ee70, type: 3}
+  m_Script: {fileID: 11500000, guid: efdf2a9eb0d238243a8113a1758b3333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _renderers:
@@ -295,6 +277,7 @@ MonoBehaviour:
   - {fileID: 787846612263822048}
   - {fileID: 491844300712235589}
   - {fileID: 1761689431608224102}
+  _killPoints: 1
 --- !u!1 &619149608787923570
 GameObject:
   m_ObjectHideFlags: 0
