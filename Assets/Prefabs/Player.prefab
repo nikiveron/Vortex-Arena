@@ -51,6 +51,8 @@ GameObject:
   - component: {fileID: 6891942519942204672}
   - component: {fileID: 899364032190436974}
   - component: {fileID: 7689132443534045834}
+  - component: {fileID: 7301276748973458372}
+  - component: {fileID: 7607519823716242849}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -237,7 +239,31 @@ MonoBehaviour:
         m_CallState: 2
   _onDestroyed:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7301276748973458372}
+        m_TargetAssemblyTypeName: ObjectDestruction, Assembly-CSharp
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7607519823716242849}
+        m_TargetAssemblyTypeName: PlayerDeathHandler, Assembly-CSharp
+        m_MethodName: HandleDestroyed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8895408410799267721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,6 +342,45 @@ MonoBehaviour:
   _maxStateColor: {r: 0, g: 1, b: 0, a: 1}
   _midStateColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   _criticalStateColor: {r: 1, g: 0, b: 0, a: 1}
+--- !u!114 &7301276748973458372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513362664269914711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc089e0482f19d3489bd9079c86e6d8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _deathEffectPrefab: {fileID: 1134744929364646568, guid: 1cd08226b4c4728419114bc710ea3b77, type: 3}
+--- !u!114 &7607519823716242849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513362664269914711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2415cd30dc928841992664755128eec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _renderers:
+  - {fileID: 3979598979288030189}
+  - {fileID: 8295457630457863491}
+  - {fileID: 7820876608165390918}
+  - {fileID: 7155656633271175122}
+  _rigidbody: {fileID: 8170205585124955159}
+  _colliders:
+  - {fileID: 5740480837749576834}
+  - {fileID: 1036619019659103267}
+  - {fileID: 4080825534175599804}
+  - {fileID: 4633578673596400601}
+  _sceneSwitcher: {fileID: 2930514395220763400, guid: 0deb735807c213d449586df9a1460bb3, type: 3}
+  _playerController: {fileID: 8256606937563587944}
+  _delayBeforeGameOver: 3
 --- !u!1 &2297862508257580732
 GameObject:
   m_ObjectHideFlags: 0

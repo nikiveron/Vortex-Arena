@@ -10,6 +10,7 @@ public class GameLevelUIController : MonoBehaviour
 	[SerializeField] private PanelController _menuPanel;
 	[SerializeField] private PanelController _helpPanel;
 	[SerializeField] private PanelController _settingsPanel;
+	[SerializeField] private EndGamePanelController _endGamePanel;
 
 	[SerializeField] private Button _stopGame;
 	[SerializeField] private Button _return;
@@ -22,9 +23,10 @@ public class GameLevelUIController : MonoBehaviour
         _menuPanel.HidePanel();
         _helpPanel.HidePanel();
 		_settingsPanel.HidePanel();
+        _endGamePanel.HidePanel();
 
         _stopGame.onClick.AddListener(StopGame);
-		_return.onClick.AddListener(StartPlay);
+		_return.onClick.AddListener(ResumeGame);
 		_help.onClick.AddListener(_helpPanel.ShowPanel);
 		_settings.onClick.AddListener(_settingsPanel.ShowPanel);
 		_exit.onClick.AddListener(ExitGame);
@@ -36,7 +38,7 @@ public class GameLevelUIController : MonoBehaviour
         _menuPanel.ShowPanel();
     }
 
-	private void StartPlay()
+	private void ResumeGame()
 	{
 		_pauseManager.ResumeGame();
 		_menuPanel.HidePanel();
@@ -46,4 +48,19 @@ public class GameLevelUIController : MonoBehaviour
 	{
 		_sceneSwitcher.LoadMainMenu();
 	}
+
+	public void EndGame()
+    {
+        _pauseManager.PauseGame();
+        _endGamePanel.ShowPanel();
+    }
+
+    private void OnDisable()
+    {
+        _stopGame.onClick.RemoveAllListeners();
+        _return.onClick.RemoveAllListeners();
+        _help.onClick.RemoveAllListeners();
+        _settings.onClick.RemoveAllListeners();
+        _exit.onClick.RemoveAllListeners();
+    }
 }

@@ -46,8 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pauseManager: {fileID: 1540694889132098943}
+  _scoreCounter: {fileID: 8935389624510162201, guid: 96b0460ea622afa489ec4edec72d5892, type: 3}
   _mainMenuSceneName: 01_MainMenu
   _gameMenuSceneName: 02_GameLevel
+  _endGameSceneName: 03_EndGame
 --- !u!114 &1540694889132098943
 MonoBehaviour:
   m_ObjectHideFlags: 0

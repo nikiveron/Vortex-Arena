@@ -15,7 +15,7 @@ public class ObjectDeathHandler : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void DisableRenderer()
+    protected void DisableRenderer()
     {
         foreach (var renderer in _renderers)
         {
@@ -23,7 +23,7 @@ public class ObjectDeathHandler : MonoBehaviour
         }
     }
 
-    private void DisablePhysics()
+    protected void DisablePhysics()
     {
         _rigidbody.isKinematic = true;
         _rigidbody.detectCollisions = false;

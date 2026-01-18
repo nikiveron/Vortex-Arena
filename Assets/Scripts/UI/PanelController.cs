@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PanelController : MonoBehaviour
 {
-    [SerializeField] private Button _hideButton;
+    [SerializeField] protected Button _hideButton;
 
     private void Awake()
     {
