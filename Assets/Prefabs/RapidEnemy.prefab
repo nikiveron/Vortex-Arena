@@ -176,7 +176,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 7857276067336210253}
   _defaultAcceleration: 50
-  _boosterAcceleration: 100
   _maxSpeed: 5
   _rotationSpeed: 6
 --- !u!114 &2301068318651340355
@@ -351,7 +350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 10
-  _knockbackForce: 60
+  _knockbackForce: 45
 --- !u!1 &619149608787923570
 GameObject:
   m_ObjectHideFlags: 0
