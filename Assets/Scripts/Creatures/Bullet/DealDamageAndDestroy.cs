@@ -3,7 +3,6 @@ using UnityEngine;
 public class DealDamageAndDestroy : MonoBehaviour
 {
     [SerializeField] private Bullet _bullet;
-    [SerializeField] private AudioClip _hitSound;
     [SerializeField] private float _damage = 10f;
     private bool _isPlayer = false; 
     private bool _hasHit = false;
@@ -24,7 +23,6 @@ public class DealDamageAndDestroy : MonoBehaviour
         {
             _hasHit = true;
             health.TakeDamage(_damage);
-            AudioSource.PlayClipAtPoint(_hitSound, transform.position, 1f);
 
             Destroy(gameObject);
         }

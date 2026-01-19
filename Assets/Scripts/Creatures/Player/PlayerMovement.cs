@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerMovement : ObjectMovement
 {
     [SerializeField] protected ObjectBoost _velocityBoost;
+    [SerializeField, Range(0f, 100f)] protected float _boosterAcceleration = 100f;
 
     public void Move(Vector3 direction)
     {
