@@ -16,7 +16,7 @@ public class EndGamePanelController : PanelController
         _menu.onClick.AddListener(ExitGame);
     }
 
-    public void ShowPanel()
+    public override void ShowPanel()
     {
         base.ShowPanel();
         _score.text = $"{ScoreCounter.Score}";
