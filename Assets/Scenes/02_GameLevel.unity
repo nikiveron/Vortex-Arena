@@ -303,7 +303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84af3c0898046a94c8ecb263d2807e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _knockbackForce: 20
+  _knockbackForce: 10
 --- !u!65 &13781358
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1008,7 +1008,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84af3c0898046a94c8ecb263d2807e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _knockbackForce: 20
+  _knockbackForce: 10
 --- !u!1 &159435682
 GameObject:
   m_ObjectHideFlags: 0
@@ -2627,7 +2627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84af3c0898046a94c8ecb263d2807e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _knockbackForce: 20
+  _knockbackForce: 10
 --- !u!1 &409766570
 GameObject:
   m_ObjectHideFlags: 0
@@ -3110,7 +3110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84af3c0898046a94c8ecb263d2807e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _knockbackForce: 20
+  _knockbackForce: 10
 --- !u!1 &488092909
 GameObject:
   m_ObjectHideFlags: 0
@@ -3158,7 +3158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84af3c0898046a94c8ecb263d2807e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _knockbackForce: 20
+  _knockbackForce: 10
 --- !u!65 &488092912
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3352,7 +3352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84af3c0898046a94c8ecb263d2807e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _knockbackForce: 20
+  _knockbackForce: 10
 --- !u!65 &554548853
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3542,7 +3542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84af3c0898046a94c8ecb263d2807e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _knockbackForce: 20
+  _knockbackForce: 10
 --- !u!1 &592140537
 GameObject:
   m_ObjectHideFlags: 0
@@ -3952,7 +3952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84af3c0898046a94c8ecb263d2807e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _knockbackForce: 20
+  _knockbackForce: 10
 --- !u!65 &681415780
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5171,7 +5171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84af3c0898046a94c8ecb263d2807e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _knockbackForce: 20
+  _knockbackForce: 10
 --- !u!65 &850631423
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5604,7 +5604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84af3c0898046a94c8ecb263d2807e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _knockbackForce: 20
+  _knockbackForce: 10
 --- !u!65 &921828500
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5907,7 +5907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84af3c0898046a94c8ecb263d2807e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _knockbackForce: 20
+  _knockbackForce: 10
 --- !u!65 &969420492
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6026,7 +6026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84af3c0898046a94c8ecb263d2807e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _knockbackForce: 20
+  _knockbackForce: 10
 --- !u!65 &998302522
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6348,7 +6348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84af3c0898046a94c8ecb263d2807e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _knockbackForce: 20
+  _knockbackForce: 10
 --- !u!65 &1145304767
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6467,7 +6467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84af3c0898046a94c8ecb263d2807e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _knockbackForce: 20
+  _knockbackForce: 10
 --- !u!65 &1159417684
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7539,7 +7539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84af3c0898046a94c8ecb263d2807e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _knockbackForce: 20
+  _knockbackForce: 10
 --- !u!65 &1535093214
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7874,7 +7874,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.10588236, g: 0.1254902, b: 0.15294118, a: 1}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -9385,7 +9385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84af3c0898046a94c8ecb263d2807e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _knockbackForce: 20
+  _knockbackForce: 10
 --- !u!65 &1966455861
 BoxCollider:
   m_ObjectHideFlags: 0
