@@ -10227,6 +10227,18 @@ PrefabInstance:
       propertyPath: _text
       value: 
       objectReference: {fileID: 1787486940}
+    - target: {fileID: 7952259131227891845, guid: 1471359257f2a6843ae63349b106ae2c, type: 3}
+      propertyPath: _onDestroyed.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1006551680}
+    - target: {fileID: 7952259131227891845, guid: 1471359257f2a6843ae63349b106ae2c, type: 3}
+      propertyPath: _onDestroyed.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: StopTimer
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952259131227891845, guid: 1471359257f2a6843ae63349b106ae2c, type: 3}
+      propertyPath: _onDestroyed.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: GameTimer, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7995248960220262142, guid: 1471359257f2a6843ae63349b106ae2c, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.86602557

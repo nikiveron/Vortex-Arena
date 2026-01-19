@@ -69,16 +69,6 @@ public class GameTimer : MonoBehaviour
         _isRunning = false;
     }
 
-    public void PauseTimer()
-    {
-        _isRunning = false;
-    }
-
-    public void ResumeTimer()
-    {
-        _isRunning = true;
-    }
-
     public void ResetTimer()
     {
         _elapsedTime = 0f;
@@ -95,8 +85,8 @@ public class GameTimer : MonoBehaviour
     {
         if (_pauseOnGamePause)
         {
-            PauseManager.OnGamePaused += PauseTimer;
-            PauseManager.OnGameResumed += ResumeTimer;
+            PauseManager.OnGamePaused += StopTimer;
+            PauseManager.OnGameResumed += StartTimer;
         }
     }
 
@@ -104,8 +94,8 @@ public class GameTimer : MonoBehaviour
     {
         if (_pauseOnGamePause)
         {
-            PauseManager.OnGamePaused -= PauseTimer;
-            PauseManager.OnGameResumed -= ResumeTimer;
+            PauseManager.OnGamePaused -= StopTimer;
+            PauseManager.OnGameResumed -= StartTimer;
         }
     }
 }
