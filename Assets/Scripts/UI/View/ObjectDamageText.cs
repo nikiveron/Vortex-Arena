@@ -14,10 +14,10 @@ public class ObjectDamageText : MonoBehaviour
     public void Display(float damageValue)
     {
         _text.text = $"{damageValue}";
-        StartCoroutine(Animate());
+        StartCoroutine(Show());
     }
 
-    private IEnumerator Animate()
+    private IEnumerator Show()
     {
         _text.gameObject.SetActive(true);
         yield return new WaitForSeconds(3f);
