@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6830188, g: 0.10696327, b: 0.10696327, a: 1}
+  m_Color: {r: 0.7283019, g: 0.004122404, b: 0.004122404, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 4365413443427811382}
   - component: {fileID: 1542673547755116309}
   - component: {fileID: 3182239411744784485}
+  - component: {fileID: 2133901134239360703}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -337,6 +338,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 9144222917789863465}
+--- !u!114 &2133901134239360703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253958743452801183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfdcd4cc98bc72e4fbd7484863aa755f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 10
+  _knockbackForce: 60
 --- !u!1 &619149608787923570
 GameObject:
   m_ObjectHideFlags: 0
@@ -625,7 +640,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -223}
+  m_AnchoredPosition: {x: 0, y: 34}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &9144222917789863465

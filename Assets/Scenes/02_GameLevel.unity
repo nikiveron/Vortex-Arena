@@ -3617,8 +3617,8 @@ MonoBehaviour:
   - {fileID: 387075933}
   - {fileID: 1108647727}
   _enemyPrefab: {fileID: 253958743452801183, guid: 4111b7e5cea93824abceca60e4b0075e, type: 3}
-  _minSpawnInterval: 10
-  _maxSpawnInterval: 20
+  _minSpawnInterval: 20
+  _maxSpawnInterval: 30
 --- !u!1 &606106916
 GameObject:
   m_ObjectHideFlags: 0
