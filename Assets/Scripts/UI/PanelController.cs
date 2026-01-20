@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,7 +10,7 @@ public class PanelController : MonoBehaviour
         _hideButton.onClick.AddListener(HidePanel);
     }
 
-    public void ShowPanel()
+    public virtual void ShowPanel()
     {
         gameObject.SetActive(true);
     }

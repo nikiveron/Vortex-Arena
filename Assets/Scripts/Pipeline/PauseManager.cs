@@ -1,7 +1,11 @@
+using System;
 using UnityEngine;
 
 public class PauseManager : MonoBehaviour
 {
+    public static event Action OnGamePaused;
+    public static event Action OnGameResumed;
+
     private bool _isPaused = false;
 
     public void TogglePause()
@@ -22,12 +26,14 @@ public class PauseManager : MonoBehaviour
     {
         Time.timeScale = 0f;
         _isPaused = true;
+        OnGamePaused?.Invoke();
     }
 
     public void ResumeGame()
     {
         Time.timeScale = 1f; 
         _isPaused = false;
+        OnGameResumed?.Invoke();
     }
 
     public bool IsPaused()

@@ -6,6 +6,7 @@ public class ObjectHealth : MonoBehaviour
 {
     [SerializeField] private float _maxState = 100f;
     [SerializeField] private UnityEvent<float, float> _onStateChanged;
+    [SerializeField] private UnityEvent<float> _onDamaged;
     [SerializeField] private UnityEvent _onDestroyed;
 
     private float _currentState = 100f;
@@ -45,6 +46,7 @@ public class ObjectHealth : MonoBehaviour
         if (IsAlive)
         {
             float damage = Mathf.Abs(damageAmount) * -1;
+            _onDamaged.Invoke(damage);  
             ChangeState(damage);
         }
     }
