@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -8,6 +5,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private EnemyMovement _movement;
     [SerializeField] private EnemyShooter _shooter;
     [SerializeField, Range(0f, 100f)] private float _shooterDistance;
+    [SerializeField] private float _stopDistance = 2.5f;
     public Transform Player { get; set; }
 
     private void Update()
@@ -18,8 +16,16 @@ public class EnemyController : MonoBehaviour
     private void PursuePlayer()
     {
         Vector3 targetPosition = GetTargetPosition();
-        Vector3 directionToTarget = GetDirectionToTarget(targetPosition);
-        MoveAndShoot(directionToTarget);
+        if (GetDistanceToTarget(targetPosition) >= _stopDistance)
+        {
+            Vector3 directionToTarget = GetDirectionToTarget(targetPosition);
+            MoveAndShoot(directionToTarget);
+        }
+    }
+
+    private float GetDistanceToTarget(Vector3 targetPosition)
+    {
+        return Vector3.Distance(transform.position, targetPosition);    
     }
 
     private Vector3 GetTargetPosition()
@@ -37,7 +43,9 @@ public class EnemyController : MonoBehaviour
 
     private Vector3 GetDirectionToTarget(Vector3 targetPosition)
     {
-        Vector3 directionToTarget = targetPosition - transform.position; directionToTarget.y = 0f; directionToTarget = directionToTarget.normalized;
+        Vector3 directionToTarget = targetPosition - transform.position;
+        directionToTarget.y = 0f;
+        directionToTarget = directionToTarget.normalized;
         return directionToTarget;
     }
 
