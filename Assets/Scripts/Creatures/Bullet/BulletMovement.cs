@@ -7,6 +7,8 @@ public class BulletMovement : MonoBehaviour
     
     private void Start()
     {
-        _rigidbody.velocity = transform.forward * _speed;
+        _rigidbody.velocity = Vector3.zero;
+        _rigidbody.angularVelocity = Vector3.zero;
+        _rigidbody.AddForce(transform.forward * _speed, ForceMode.VelocityChange);
     }
 }

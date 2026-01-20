@@ -90,8 +90,8 @@ Rigidbody:
   m_GameObject: {fileID: 513362664269914711}
   serializedVersion: 4
   m_Mass: 40
-  m_Drag: 0
-  m_AngularDrag: 6
+  m_Drag: 5
+  m_AngularDrag: 10
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -105,9 +105,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 84
-  m_CollisionDetection: 3
+  m_CollisionDetection: 1
 --- !u!114 &8256606937563587944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -918,6 +918,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1136259853871296331, guid: 45c7f78411df3fe46ac304347188b5d4, type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5931377794402304992, guid: 45c7f78411df3fe46ac304347188b5d4, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
