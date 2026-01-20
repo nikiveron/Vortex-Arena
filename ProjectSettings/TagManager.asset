@@ -12,9 +12,9 @@ TagManager:
   - Water
   - UI
   - ZoneWall
-  - Bullet
-  - 
-  - 
+  - EnemyBullet
+  - Enemy
+  - PlayerBullet
   - 
   - 
   - 

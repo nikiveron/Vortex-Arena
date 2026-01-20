@@ -13,7 +13,7 @@ public class DealDamageAndKnockback : MonoBehaviour
         if (_damagedObjects.Contains(collision.gameObject))
             return;
 
-        if (collision.gameObject.TryGetComponent<ObjectHealth>(out var health))
+        if (collision.gameObject.TryGetComponent<ObjectHealth>(out var health) && collision.gameObject.TryGetComponent<PlayerController>(out _))
         {
             _damagedObjects.Add(collision.gameObject);
             health.TakeDamage(_damage);

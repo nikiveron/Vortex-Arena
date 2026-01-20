@@ -24,7 +24,7 @@ public class DealDamageAndDestroy : MonoBehaviour
             _hasHit = true;
             health.TakeDamage(_damage);
 
-            Destroy(gameObject);
         }
+        Destroy(gameObject);
     }
 }

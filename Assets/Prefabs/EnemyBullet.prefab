@@ -48,7 +48,7 @@ Rigidbody:
   serializedVersion: 4
   m_Mass: 0.01
   m_Drag: 0
-  m_AngularDrag: 0
+  m_AngularDrag: 10
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -287,6 +287,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 65050048801266530, guid: fa8aadfb07ca2034188c69c6f2ab4624, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: e144534f518cda741a4cc832e62f7b14, type: 2}
     - target: {fileID: 65050048801266530, guid: fa8aadfb07ca2034188c69c6f2ab4624, type: 3}
       propertyPath: m_IsTrigger
       value: 0

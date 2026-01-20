@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5343006262743002672}
   - component: {fileID: 801455197197646526}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 4342145653125914802}
   - component: {fileID: 8958517517765636285}
   - component: {fileID: 8599135329646865517}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 1090279284344329214}
   - component: {fileID: 3701725433027358699}
   - component: {fileID: 1045989810883881414}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: PlayerBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -444,15 +444,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1259865673663102, guid: 8b227e0429c621940acb9e2e8d18d12f, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1702379867288058, guid: 8b227e0429c621940acb9e2e8d18d12f, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1814707426338288, guid: 8b227e0429c621940acb9e2e8d18d12f, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4843094304395452, guid: 8b227e0429c621940acb9e2e8d18d12f, type: 3}
       propertyPath: m_LocalScale.x
@@ -510,6 +510,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 65766590397689886, guid: 8b227e0429c621940acb9e2e8d18d12f, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: e144534f518cda741a4cc832e62f7b14, type: 2}
     - target: {fileID: 65766590397689886, guid: 8b227e0429c621940acb9e2e8d18d12f, type: 3}
       propertyPath: m_IsTrigger
       value: 1
