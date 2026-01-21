@@ -304,7 +304,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _knockbackForce: 40
-  _centerPoint: {x: 0, y: 0, z: 0}
 --- !u!65 &13781358
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1011,7 +1010,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _knockbackForce: 40
-  _centerPoint: {x: 0, y: 0, z: 0}
 --- !u!1 &159435682
 GameObject:
   m_ObjectHideFlags: 0
@@ -12292,7 +12290,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _knockbackForce: 40
-  _centerPoint: {x: 0, y: 0, z: 0}
 --- !u!1 &409766570
 GameObject:
   m_ObjectHideFlags: 0
@@ -12777,7 +12774,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _knockbackForce: 40
-  _centerPoint: {x: 0, y: 0, z: 0}
 --- !u!1 &488092909
 GameObject:
   m_ObjectHideFlags: 0
@@ -12826,7 +12822,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _knockbackForce: 40
-  _centerPoint: {x: 0, y: 0, z: 0}
 --- !u!65 &488092912
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13021,7 +13016,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _knockbackForce: 40
-  _centerPoint: {x: 0, y: 0, z: 0}
 --- !u!65 &554548853
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13213,7 +13207,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _knockbackForce: 40
-  _centerPoint: {x: 0, y: 0, z: 0}
 --- !u!1 &592140537
 GameObject:
   m_ObjectHideFlags: 0
@@ -18283,7 +18276,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -112.50009}
+  m_AnchoredPosition: {x: 0, y: -112.5}
   m_SizeDelta: {x: 520, y: -535.0002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &654427501
@@ -18454,7 +18447,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _knockbackForce: 40
-  _centerPoint: {x: 0, y: 0, z: 0}
 --- !u!65 &681415780
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19674,7 +19666,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _knockbackForce: 40
-  _centerPoint: {x: 0, y: 0, z: 0}
 --- !u!65 &850631423
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24938,7 +24929,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _knockbackForce: 40
-  _centerPoint: {x: 0, y: 0, z: 0}
 --- !u!65 &921828500
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25242,7 +25232,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _knockbackForce: 40
-  _centerPoint: {x: 0, y: 0, z: 0}
 --- !u!65 &969420492
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25362,7 +25351,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _knockbackForce: 40
-  _centerPoint: {x: 0, y: 0, z: 0}
 --- !u!65 &998302522
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25685,7 +25673,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _knockbackForce: 40
-  _centerPoint: {x: 0, y: 0, z: 0}
 --- !u!65 &1145304767
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25805,7 +25792,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _knockbackForce: 40
-  _centerPoint: {x: 0, y: 0, z: 0}
 --- !u!65 &1159417684
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25984,11 +25970,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 832260297}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 180, y: -40}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -755, y: -40}
   m_SizeDelta: {x: 50, y: 50}
-  m_Pivot: {x: 0, y: 1}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1284626888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26572,11 +26558,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 832260297}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 297, y: -40}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -613, y: -40}
   m_SizeDelta: {x: 100, y: 50}
-  m_Pivot: {x: 0, y: 1}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1512796262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26878,7 +26864,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _knockbackForce: 40
-  _centerPoint: {x: 0, y: 0, z: 0}
 --- !u!65 &1535093214
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28725,7 +28710,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _knockbackForce: 40
-  _centerPoint: {x: 0, y: 0, z: 0}
 --- !u!65 &1966455861
 BoxCollider:
   m_ObjectHideFlags: 0
