@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 352358266184149571}
   - component: {fileID: 1429489312469223161}
-  - component: {fileID: 807862457709985114}
   - component: {fileID: 6647135691224906535}
   - component: {fileID: 7703355802316049180}
   - component: {fileID: 4661766065108703044}
@@ -65,33 +64,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!114 &807862457709985114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7945065123377942330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bf87c350e2f94444b09664e4b3e2a54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _onInitialized:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4661766065108703044}
-        m_TargetAssemblyTypeName: DealDamageAndDestroy, Assembly-CSharp
-        m_MethodName: Initialize
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &6647135691224906535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,7 +103,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9a38e617587704ba4611415705abb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bullet: {fileID: 807862457709985114}
   _damage: 10
 --- !u!1001 &342701393297101878
 PrefabInstance:

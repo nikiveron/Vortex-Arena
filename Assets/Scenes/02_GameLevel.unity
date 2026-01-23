@@ -25927,9 +25927,9 @@ MonoBehaviour:
   _mapCenter: {x: 0, y: 0, z: 0}
   _mapRadius: {x: 65, y: 65}
   _maxSpawnedItems: 10
-  _startCoolDown: 30
-  _minSpawnInterval: 20
-  _maxSpawnInterval: 60
+  _startCoolDown: 20
+  _minSpawnInterval: 10
+  _maxSpawnInterval: 30
 --- !u!1 &1177726819
 GameObject:
   m_ObjectHideFlags: 0

@@ -188,7 +188,6 @@ GameObject:
   - component: {fileID: 352358266184149571}
   - component: {fileID: 8255486907783961131}
   - component: {fileID: 3267301623973177068}
-  - component: {fileID: 5282025439528465670}
   - component: {fileID: 4822161588673733159}
   - component: {fileID: 1090279284344329214}
   - component: {fileID: 3701725433027358699}
@@ -266,33 +265,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!114 &5282025439528465670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7945065123377942330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bf87c350e2f94444b09664e4b3e2a54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _onInitialized:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3701725433027358699}
-        m_TargetAssemblyTypeName: DealDamageAndDestroy, Assembly-CSharp
-        m_MethodName: Initialize
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &4822161588673733159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,7 +304,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9a38e617587704ba4611415705abb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bullet: {fileID: 5282025439528465670}
   _damage: 10
 --- !u!82 &1045989810883881414
 AudioSource:
