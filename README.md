@@ -4,6 +4,7 @@
 **Жанр:** Аркадный шутер с видом сверху    
 **Платформа:** Windows    
 **Движок:** Unity  
+
 ---
 ![](https://github.com/nikiveron/Vortex-Arena/blob/main/GitHubPreview/Short_gameplay_preview.gif)
 ---
@@ -99,3 +100,4 @@
   - Временные бустеры и другое
 - Добавление нескольких музыкальных треков
 - Выбор скина корабля игрока
+
