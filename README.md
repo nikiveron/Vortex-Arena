@@ -100,4 +100,5 @@
 
 Полный видеообзор геймплея можете просмотреть на данных платформах:
 - [Rutube](https://rutube.ru/video/aaa317e6274fd63211d8624a9d2d7a44/)
+- [YouTube](https://youtu.be/2rdozebn1vk?si=Okth8bmuR9XuwsYi)
 
