@@ -8,6 +8,8 @@
 
 ![](https://github.com/nikiveron/Vortex-Arena/blob/main/GitHubPreview/Short_gameplay_preview.gif)
 
+## 📥 [Скачать игру](https://github.com/nikiveron/Vortex-Arena/releases/tag/1.00) 
+
 ## 🧩 Описание
 
 Проект представляет собой прототип космической аркадной игры, в которой игрок управляет кораблём, сражается с волнами врагов на ограниченной арене, набирает очки и старается продержаться как можно дольше.
@@ -101,4 +103,5 @@
 Полный видеообзор геймплея можете просмотреть на данных платформах:
 - [Rutube](https://rutube.ru/video/aaa317e6274fd63211d8624a9d2d7a44/)
 - [YouTube](https://youtu.be/2rdozebn1vk?si=Okth8bmuR9XuwsYi)
+
 
