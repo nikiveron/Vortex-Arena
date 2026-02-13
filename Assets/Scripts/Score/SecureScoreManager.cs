@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
@@ -9,6 +8,7 @@ using UnityEngine;
 public class SecureScoreManager : MonoBehaviour
 {
 	private string _savePath;
+    private static string _folderName = "Scores";
 	private string _fileName = "scores.dat";
 	private byte[] _encryptionKey;
 	private byte[] _iv;
@@ -16,20 +16,62 @@ public class SecureScoreManager : MonoBehaviour
 
     private void Awake()
 	{
-		_savePath = Path.Combine(SavePathProvider.GetSavePath(), _fileName);
-        _secret = EnvLoader.GetEnv("SECRET_SALT");
-
-        // Создаем уникальный ключ на основе железа (базовый уровень защиты)
-        string machineKey = SystemInfo.deviceUniqueIdentifier;
-		using (SHA256 sha256 = SHA256.Create())
-		{
-			_encryptionKey = sha256.ComputeHash(Encoding.UTF8.GetBytes(machineKey + _secret));
-		}
-
-		InitializeIV();
+        InitializeSavePath();
+        InitializeSecret();
+        InitializeEncryptionKey();
+        InitializeIV();
 	}
 
-	private void InitializeIV()
+    private void InitializeSavePath()
+    {
+        _savePath = Path.Combine(GetSavePath(), _fileName);
+        string directory = Path.GetDirectoryName(_savePath);
+        if (!Directory.Exists(directory))
+        {
+            Directory.CreateDirectory(directory);
+        }
+    }
+
+    private void InitializeSecret()
+    {
+        _secret = EnvLoader.GetEnv("SECRET_SALT");
+
+        if (string.IsNullOrEmpty(_secret))
+        {
+            Debug.LogError("SECRET_SALT not found in .env file! Using fallback (INSECURE)");
+            _secret = "INSECURE_FALLBACK_SALT"; // Чтобы не было null
+        }
+    }
+
+    private void InitializeEncryptionKey()
+    {
+        // Создаем уникальный ключ на основе железа (базовый уровень защиты)
+        string machineKey = SystemInfo.deviceUniqueIdentifier;
+        using (SHA256 sha256 = SHA256.Create())
+        {
+            _encryptionKey = sha256.ComputeHash(Encoding.UTF8.GetBytes(machineKey + _secret));
+        }
+    }
+
+    public static string GetSavePath()
+    {
+#if UNITY_EDITOR
+        return Path.Combine(Application.dataPath, "..", _folderName);
+#elif UNITY_STANDALONE_WIN
+            // Windows: C:\Users\[User]\AppData\LocalLow\[Company]\[Game]\Scores
+            return Path.Combine(Application.persistentDataPath, _folderName);
+#elif UNITY_STANDALONE_LINUX
+            // Linux: ~/.config/unity3d/[Company]/[Game]/Scores
+            return Path.Combine(Application.persistentDataPath, _folderName);
+#elif UNITY_STANDALONE_OSX
+            // Mac: ~/Library/Application Support/[Company]/[Game]/Scores
+            return Path.Combine(Application.persistentDataPath, _folderName);
+#else
+            return Application.persistentDataPath;
+#endif
+    }
+
+    private void InitializeIV()
 	{
 		if (PlayerPrefs.HasKey("iv"))
 		{
@@ -91,8 +133,8 @@ public class SecureScoreManager : MonoBehaviour
     {
         using (Aes aes = Aes.Create())
         {
-            aes.Key = encryptionKey;
-            aes.IV = iv;
+            aes.Key = _encryptionKey;
+            aes.IV = _iv;
 
             ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
 
@@ -114,8 +156,8 @@ public class SecureScoreManager : MonoBehaviour
     {
         using (Aes aes = Aes.Create())
         {
-            aes.Key = encryptionKey;
-            aes.IV = iv;
+            aes.Key = _encryptionKey;
+            aes.IV = _iv;
 
             ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
 
@@ -160,7 +202,7 @@ public class SecureScoreManager : MonoBehaviour
         // Добавляем дополнительный хэш для проверки целостности
         byte[] dataWithHash = AddIntegrityCheck(encryptedData);
 
-        File.WriteAllBytes(savePath, dataWithHash);
+        File.WriteAllBytes(_savePath, dataWithHash);
     }
 
     private byte[] AddIntegrityCheck(byte[] data)
@@ -194,12 +236,12 @@ public class SecureScoreManager : MonoBehaviour
 
     private ScoreData LoadScoreData()
     {
-        if (!File.Exists(savePath))
+        if (!File.Exists(_savePath))
             return new ScoreData();
 
         try
         {
-            byte[] dataWithHash = File.ReadAllBytes(savePath);
+            byte[] dataWithHash = File.ReadAllBytes(_savePath);
 
             // Проверка целостности
             if (!VerifyIntegrity(dataWithHash))

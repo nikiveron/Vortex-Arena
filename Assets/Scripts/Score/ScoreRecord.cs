@@ -17,7 +17,6 @@ public class ScoreData
     public ScoreRecord bestScore;               // Лучший за всё время
     public int scoreAmount = 3;                 // Количество сохраненных результатов
     public List<ScoreRecord> recentScores;      // Последние scoreAmount результата
-    public string encryptionKey;                // Ключ для проверки
 
     public ScoreData()
     {

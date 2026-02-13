@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 public class ScoreCounter : MonoBehaviour
 {
     [SerializeField] private UnityEvent<int> _onStateChanged;
-    private static int _score = 0;
-    public static int Score => _score;
+    private int _score = 0;
+    public int Score => _score;
 
     private void OnEnable()
     {
