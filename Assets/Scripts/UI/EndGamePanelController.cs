@@ -9,6 +9,7 @@ public class EndGamePanelController : PanelController
     [SerializeField] private TMP_Text _time;
     [SerializeField] private Button _restart;
     [SerializeField] private Button _menu;
+    [SerializeField] private string _scoreStorageName = "HighestScore";
 
     private void Awake()
     {
