@@ -1,4 +1,4 @@
-<img width="1417" height="797" alt="Снимок экрана 2026-02-15 220456" src="https://github.com/user-attachments/assets/5390f702-bb7b-40af-8749-f3c3868d7cfa" /># 🚀 Vortex Arena - космический аркадный экшен
+# 🚀 Vortex Arena - космический аркадный экшен
 
 **Статус:** ✅ Завершённый прототип   
 **Жанр:** Аркадный шутер с видом сверху    
@@ -110,6 +110,7 @@
 Полный видеообзор геймплея можете просмотреть на данных платформах:
 - [Rutube](https://rutube.ru/video/aaa317e6274fd63211d8624a9d2d7a44/)
 - [YouTube](https://youtu.be/2rdozebn1vk?si=Okth8bmuR9XuwsYi)
+
 
 
 
