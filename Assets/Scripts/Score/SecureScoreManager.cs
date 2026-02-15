@@ -8,6 +8,8 @@ using UnityEngine;
 
 public class SecureScoreManager : MonoBehaviour
 {
+    [SerializeField] private SecretConfig _secretConfig;
+
     private bool _lastScoreWasBest;
     public bool LastScoreWasBest => _lastScoreWasBest;
 
@@ -38,13 +40,14 @@ public class SecureScoreManager : MonoBehaviour
 
     private void InitializeSecret()
     {
-        _secret = EnvLoader.GetEnv("SECRET_SALT");
-
-        if (string.IsNullOrEmpty(_secret))
+        if (_secretConfig == null)
         {
-            Debug.LogError("SECRET_SALT not found in .env file! Using fallback (INSECURE)");
+            Debug.LogError("SecretConfig not assigned! Using fallback (INSECURE)");
             _secret = "INSECURE_FALLBACK_SALT";
+            return;
         }
+
+        _secret = _secretConfig.SecretSalt;
     }
 
     private void InitializeEncryptionKey()
@@ -167,7 +170,7 @@ public class SecureScoreManager : MonoBehaviour
             playTimeSeconds = playTime,
             bulletSpent = bulletsSpent,
             score = score,
-            dateTime = DateTime.UtcNow.ToString("g"),
+            dateTime = DateTime.UtcNow.ToLocalTime().ToString("g"),
         };
 
         SaveScore(newRecord);

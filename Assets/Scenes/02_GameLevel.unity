@@ -32484,6 +32484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e33b0250ec4935041be669872b830b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _secretConfig: {fileID: 11400000, guid: 70d620faf044e234bbd42eee5da4c1ac, type: 2}
 --- !u!1 &1787486938
 GameObject:
   m_ObjectHideFlags: 0
@@ -34659,7 +34660,7 @@ PrefabInstance:
       objectReference: {fileID: 1787486940}
     - target: {fileID: 7952259131227891845, guid: 1471359257f2a6843ae63349b106ae2c, type: 3}
       propertyPath: _maxState
-      value: 30
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7952259131227891845, guid: 1471359257f2a6843ae63349b106ae2c, type: 3}
       propertyPath: _onDestroyed.m_PersistentCalls.m_Calls.Array.data[2].m_Target
