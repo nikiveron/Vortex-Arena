@@ -27,7 +27,7 @@ public class BackgroundMusicPlayer : MonoBehaviour
                 _audioSource.clip = clip;
                 _audioSource.Play();
 
-                yield return new WaitForSeconds(10);
+                yield return new WaitForSeconds(clip.length);
             }
         }
     }

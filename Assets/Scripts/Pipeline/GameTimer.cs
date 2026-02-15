@@ -1,6 +1,5 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
 
 public class GameTimer : MonoBehaviour
 {
@@ -12,6 +11,8 @@ public class GameTimer : MonoBehaviour
     [Header("Timer Settings")]
     [SerializeField] private bool _startOnAwake = true;
     [SerializeField] private bool _pauseOnGamePause = true;
+
+    public static string TimeFormat => _timeFormat;
 
     private static float _elapsedTime = 0f;
     private bool _isRunning = false;
@@ -25,7 +26,7 @@ public class GameTimer : MonoBehaviour
             _timerText = GetComponent<TMP_Text>();
 
         if (_startOnAwake)
-            StartTimer();
+            RestartTimer();
     }
 
     private void Update()
@@ -55,6 +56,23 @@ public class GameTimer : MonoBehaviour
         else
         {
             System.TimeSpan timeSpan = System.TimeSpan.FromSeconds(_elapsedTime);
+            return timeSpan.ToString(_timeFormat);
+        }
+    }
+
+    public static string FormattedTime(float elapsedTime)
+    {
+        if (_showMilliseconds)
+        {
+            int minutes = Mathf.FloorToInt(elapsedTime / 60f);
+            int seconds = Mathf.FloorToInt(elapsedTime % 60f);
+            int milliseconds = Mathf.FloorToInt((elapsedTime * 1000) % 1000);
+
+            return string.Format("{0:00}:{1:00}.{2:000}", minutes, seconds, milliseconds);
+        }
+        else
+        {
+            System.TimeSpan timeSpan = System.TimeSpan.FromSeconds(elapsedTime);
             return timeSpan.ToString(_timeFormat);
         }
     }

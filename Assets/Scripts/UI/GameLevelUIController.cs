@@ -9,6 +9,7 @@ public class GameLevelUIController : MonoBehaviour
 	[SerializeField] private PanelController _menuPanel;
 	[SerializeField] private PanelController _helpPanel;
 	[SerializeField] private EndGamePanelController _endGamePanel;
+	[SerializeField] private GameObject _hudUI;
 
 	[SerializeField] private Button _stopGame;
 	[SerializeField] private Button _return;
@@ -57,6 +58,7 @@ public class GameLevelUIController : MonoBehaviour
     {
         _pauseManager.PauseGame(); 
 		_backgroundMusic.Pause();
+        _hudUI.SetActive(false);
         _endGamePanel.ShowPanel();
     }
 

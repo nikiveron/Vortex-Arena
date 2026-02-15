@@ -7,6 +7,7 @@ public class PlayerShoot : ObjectShoot
     [SerializeField] private float _maxState = 100f;
     [SerializeField] private float _additionDelay = 5f;
     [SerializeField] private UnityEvent<float, float> _onStateChanged;
+    [SerializeField] private UnityEvent<int> _onShootedOnce;
 
     private float _currentState = 100f;
     public float MaxState => _maxState;
@@ -34,6 +35,7 @@ public class PlayerShoot : ObjectShoot
         {
             ShootOnce();
             _currentState--;
+            _onShootedOnce.Invoke(_firePoints.Length);
             _onStateChanged.Invoke(_maxState, _currentState);
         }
     }

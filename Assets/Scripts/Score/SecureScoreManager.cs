@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
@@ -7,15 +8,18 @@ using UnityEngine;
 
 public class SecureScoreManager : MonoBehaviour
 {
-	private string _savePath;
-    private static string _folderName = "Scores";
-	private string _fileName = "scores.dat";
+    private bool _lastScoreWasBest;
+    public bool LastScoreWasBest => _lastScoreWasBest;
+
+    private string _savePath;
+    private static readonly string _folderName = "Scores";
+	private readonly string _fileName = "scores.dat";
 	private byte[] _encryptionKey;
 	private byte[] _iv;
 	private string _secret = string.Empty;
 
     private void Awake()
-	{
+    {
         InitializeSavePath();
         InitializeSecret();
         InitializeEncryptionKey();
@@ -39,24 +43,22 @@ public class SecureScoreManager : MonoBehaviour
         if (string.IsNullOrEmpty(_secret))
         {
             Debug.LogError("SECRET_SALT not found in .env file! Using fallback (INSECURE)");
-            _secret = "INSECURE_FALLBACK_SALT"; // Чтобы не было null
+            _secret = "INSECURE_FALLBACK_SALT";
         }
     }
 
     private void InitializeEncryptionKey()
     {
-        // Создаем уникальный ключ на основе железа (базовый уровень защиты)
+        // Создаем уникальный ключ на основе железа
         string machineKey = SystemInfo.deviceUniqueIdentifier;
-        using (SHA256 sha256 = SHA256.Create())
-        {
-            _encryptionKey = sha256.ComputeHash(Encoding.UTF8.GetBytes(machineKey + _secret));
-        }
+        using SHA256 sha256 = SHA256.Create();
+        _encryptionKey = sha256.ComputeHash(Encoding.UTF8.GetBytes(machineKey + _secret));
     }
 
     public static string GetSavePath()
     {
 #if UNITY_EDITOR
-        return Path.Combine(Application.dataPath, "..", _folderName);
+        return Path.Combine(Directory.GetParent(Application.dataPath).FullName, _folderName);
 #elif UNITY_STANDALONE_WIN
             // Windows: C:\Users\[User]\AppData\LocalLow\[Company]\[Game]\Scores
             return Path.Combine(Application.persistentDataPath, _folderName);
@@ -112,13 +114,11 @@ public class SecureScoreManager : MonoBehaviour
 
 	private string CalculateChecksum(ScoreRecord record)
 	{
-		string data = $"{record.score}|{record.playTimeSeconds}|{record.dateTime}|{_secret}";
-		using (SHA256 sha256 = SHA256.Create())
-		{
-			byte[] hash = sha256.ComputeHash(Encoding.UTF8.GetBytes(data));
-			return Convert.ToBase64String(hash);
-		}
-	}
+		string data = $"{record.playTimeSeconds}|{record.bulletSpent}|{record.score}|{record.dateTime}|{_secret}";
+        using SHA256 sha256 = SHA256.Create();
+        byte[] hash = sha256.ComputeHash(Encoding.UTF8.GetBytes(data));
+        return Convert.ToBase64String(hash);
+    }
 
 	private bool VerifyChecksum(ScoreRecord record)
 	{
@@ -131,90 +131,92 @@ public class SecureScoreManager : MonoBehaviour
 
     private byte[] EncryptData(string plainText)
     {
-        using (Aes aes = Aes.Create())
+        using Aes aes = Aes.Create();
+        aes.Key = _encryptionKey;
+        aes.IV = _iv;
+
+        ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
+
+        using MemoryStream ms = new();
+        using CryptoStream cs = new (ms, encryptor, CryptoStreamMode.Write);
+        using (StreamWriter sw = new (cs))
         {
-            aes.Key = _encryptionKey;
-            aes.IV = _iv;
-
-            ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
-
-            using (MemoryStream ms = new MemoryStream())
-            {
-                using (CryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
-                {
-                    using (StreamWriter sw = new StreamWriter(cs))
-                    {
-                        sw.Write(plainText);
-                    }
-                    return ms.ToArray();
-                }
-            }
+            sw.Write(plainText);
         }
+        return ms.ToArray();
     }
 
     private string DecryptData(byte[] cipherText)
     {
-        using (Aes aes = Aes.Create())
-        {
-            aes.Key = _encryptionKey;
-            aes.IV = _iv;
+        using Aes aes = Aes.Create();
+        aes.Key = _encryptionKey;
+        aes.IV = _iv;
 
-            ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
+        ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
 
-            using (MemoryStream ms = new MemoryStream(cipherText))
-            {
-                using (CryptoStream cs = new CryptoStream(ms, decryptor, CryptoStreamMode.Read))
-                {
-                    using (StreamReader sr = new StreamReader(cs))
-                    {
-                        return sr.ReadToEnd();
-                    }
-                }
-            }
-        }
+        using MemoryStream ms = new (cipherText);
+        using CryptoStream cs = new (ms, decryptor, CryptoStreamMode.Read);
+        using StreamReader sr = new (cs);
+        return sr.ReadToEnd();
     }
 
-    public void SaveScore(ScoreRecord newRecord)
+    public void SubmitScore(float playTime, int bulletsSpent, int score)
     {
-        // Загружаем существующие данные
+        var newRecord = new ScoreRecord
+        {
+            playTimeSeconds = playTime,
+            bulletSpent = bulletsSpent,
+            score = score,
+            dateTime = DateTime.UtcNow.ToString("g"),
+        };
+
+        SaveScore(newRecord);
+    }
+
+    private void SaveScore(ScoreRecord newRecord)
+    {
         ScoreData scoreData = LoadScoreData();
 
-        // Вычисляем контрольную сумму
+        bool wasBest = false;
+        if (scoreData.bestScores.Count == 0)
+        {
+            wasBest = true;
+        }
+        else
+        {
+            int currentBest = scoreData.bestScores.Max(r => r.score);
+            if (newRecord.score > currentBest)
+                wasBest = true;
+        }
+
         newRecord.checksum = CalculateChecksum(newRecord);
 
-        // Обновляем лучший результат
-        if (scoreData.bestScore == null || newRecord.score > scoreData.bestScore.score)
+        scoreData.bestScores.Add(newRecord);
+        scoreData.bestScores = scoreData.bestScores
+            .OrderByDescending(r => r.score)
+            .ToList();
+
+        if (scoreData.bestScores.Count > 3)
         {
-            scoreData.bestScore = newRecord;
+            scoreData.bestScores = scoreData.bestScores.Take(3).ToList();
         }
 
-        // Обновляем последние результаты
-        scoreData.recentScores.Insert(0, newRecord);
-        if (scoreData.recentScores.Count > 3)
-        {
-            scoreData.recentScores.RemoveAt(3);
-        }
-
-        // Сохраняем
         string json = JsonUtility.ToJson(scoreData, true);
         byte[] encryptedData = EncryptData(json);
-
-        // Добавляем дополнительный хэш для проверки целостности
-        byte[] dataWithHash = AddIntegrityCheck(encryptedData);
-
+        byte[] dataWithHash = AddIntegrityCheck(encryptedData);     // Добавляем дополнительный хэш для проверки целостности
         File.WriteAllBytes(_savePath, dataWithHash);
+
+        _lastScoreWasBest = wasBest;
     }
 
     private byte[] AddIntegrityCheck(byte[] data)
     {
-        using (SHA256 sha256 = SHA256.Create())
-        {
-            byte[] hash = sha256.ComputeHash(data);
-            byte[] result = new byte[data.Length + hash.Length];
-            Array.Copy(data, result, data.Length);
-            Array.Copy(hash, 0, result, data.Length, hash.Length);
-            return result;
-        }
+        using SHA256 sha256 = SHA256.Create();
+        byte[] hash = sha256.ComputeHash(data);
+        byte[] result = new byte[data.Length + hash.Length];
+        Array.Copy(data, result, data.Length);
+        Array.Copy(hash, 0, result, data.Length, hash.Length);
+        return result;
     }
 
     private bool VerifyIntegrity(byte[] dataWithHash)
@@ -227,14 +229,12 @@ public class SecureScoreManager : MonoBehaviour
         Array.Copy(dataWithHash, data, data.Length);
         Array.Copy(dataWithHash, data.Length, hash, 0, 32);
 
-        using (SHA256 sha256 = SHA256.Create())
-        {
-            byte[] calculatedHash = sha256.ComputeHash(data);
-            return calculatedHash.SequenceEqual(hash);
-        }
+        using SHA256 sha256 = SHA256.Create();
+        byte[] calculatedHash = sha256.ComputeHash(data);
+        return calculatedHash.SequenceEqual(hash);
     }
 
-    private ScoreData LoadScoreData()
+    public ScoreData LoadScoreData()
     {
         if (!File.Exists(_savePath))
             return new ScoreData();
@@ -258,14 +258,10 @@ public class SecureScoreManager : MonoBehaviour
             string json = DecryptData(encryptedData);
             ScoreData scoreData = JsonUtility.FromJson<ScoreData>(json);
 
-            // Проверяем контрольные суммы записей
-            if (scoreData.bestScore != null && !VerifyChecksum(scoreData.bestScore))
-            {
-                Debug.LogWarning("Best score checksum failed! Resetting.");
-                scoreData.bestScore = null;
-            }
+            if (scoreData.bestScores == null)
+                scoreData.bestScores = new List<ScoreRecord>();
 
-            scoreData.recentScores = scoreData.recentScores
+            scoreData.bestScores = scoreData.bestScores
                 .Where(r => VerifyChecksum(r))
                 .ToList();
 

@@ -14,7 +14,7 @@ public static class EnvLoader
         _envVariables = new Dictionary<string, string>();
 
         // Путь к .env файлу (рядом с Assets)
-        string envPath = Path.Combine(Application.dataPath, "..", ".env");
+        string envPath = Path.Combine(Directory.GetParent(Application.dataPath).FullName, ".env");
 
         if (!File.Exists(envPath))
         {
@@ -36,11 +36,11 @@ public static class EnvLoader
                 int separatorIndex = trimmedLine.IndexOf('=');
                 if (separatorIndex < 0) continue;
 
-                string key = trimmedLine.Substring(0, separatorIndex).Trim();
-                string value = trimmedLine.Substring(separatorIndex + 1).Trim();
+                string key = trimmedLine[..separatorIndex].Trim();
+                string value = trimmedLine[(separatorIndex + 1)..].Trim();
 
                 if (value.StartsWith("\"") && value.EndsWith("\""))
-                    value = value.Substring(1, value.Length - 2);
+                    value = value[1..^1]; // тоже самое что Substring(1, value.Length - 2)
 
                 _envVariables[key] = value;
             }

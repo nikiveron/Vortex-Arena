@@ -424,6 +424,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _onShootedOnce:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7689132443534045834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -503,6 +518,8 @@ MonoBehaviour:
   _gameLevelUIController: {fileID: 0}
   _playerController: {fileID: 8256606937563587944}
   _delayBeforeGameOver: 3
+  _secureScoreManager: {fileID: 0}
+  _scoreCounter: {fileID: 0}
 --- !u!114 &6801016245400781806
 MonoBehaviour:
   m_ObjectHideFlags: 0
